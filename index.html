@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1A2B Guess Number</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./robot.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="start()">start/reset</button>
+        <hr>
+        <div v-show="answer.length>0">
+            <div><input v-model="currentValue">  <button @click="check()">send</button> <button @click="help()">automatic</button> </div>
+            <div class="errorMessage">{{error}}</div>
+            <div class="history">
+                <ul>
+                    <li v-for="item in triedList"><span class="result">{{item.result}}</span><span class="hint">{{item.hint}}</span></li>
+                </ul>
+            </div>
+            <div class="finished" v-show="isFinished">
+                <hr>
+                Done! You use {{triedList.length}} times.
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./main.js"></script>
+</html>
