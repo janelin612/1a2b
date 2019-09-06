@@ -29,9 +29,13 @@ hr {
     width: 150px;
 
     input {
+      text-align: center;
       font-size: 30px;
       margin: 4px 0;
       width: 96%;
+      &::placeholder{
+        color: #ccc;
+      }
     }
     button {
       width: 100%;

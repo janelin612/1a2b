@@ -17,7 +17,7 @@
             <button @click="start()">Start/Reset</button>
             <hr>
             <div v-show="answer.length>0">
-                <div><input type="text" v-model="currentValue" /></div>
+                <div><input type="text" v-model="currentValue" placeholder="1234"/></div>
                 <div class="errorMessage">{{error}}</div>
                 <div><button @click="check()">Send</button></div>
                 <div><button @click="help()">Automatic</button></div>
