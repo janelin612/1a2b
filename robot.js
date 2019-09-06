@@ -24,8 +24,7 @@ Robot.prototype = {
         if(times==0){
             //首次執行的話先將之前手動猜過的結果餵進去
             this._app.triedList.forEach((item)=>{
-                let hint=item.hint.split("");
-                this._filter(item.result,new Number(hint[0]),new Number(hint[2]));
+                this._filter(item.result,new Number(item.a),new Number(item.b));
                 times++;
             })
         }
@@ -45,9 +44,9 @@ Robot.prototype = {
             this._app.check();
             this._app.$forceUpdate();
             //取回結果
-            let hint = this._app.triedList[this._app.triedList.length - 1].hint.split("");
-            if (hint[0] != 4) {
-                this._filter(guess, new Number(hint[0]), new Number(hint[2]));
+            let latest = this._app.triedList[this._app.triedList.length - 1];
+            if (latest.a != 4) {
+                this._filter(guess, new Number(latest.a), new Number(latest.b));
                 this.execute(times + 1);
             }
         }, 40); //每次暫停40ms 營造一種程式在努力運算的假象

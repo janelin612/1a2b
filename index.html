@@ -29,7 +29,7 @@
             <ul>
                 <li v-for="item in triedList">
                     <span class="result">{{item.result}}</span>
-                    <span class="hint">{{item.hint}}</span></li>
+                    <span class="hint">{{`${item.a}A${item.b}B`}}</span></li>
                 <li class="finished" v-show="isFinished">
                     <hr>
                     Done! You use {{triedList.length}} times.

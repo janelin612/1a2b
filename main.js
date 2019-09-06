@@ -45,7 +45,8 @@ var app = new Vue({
 
             this.triedList.push({
                 result: this.currentValue,
-                hint: `${a}A${b}B`
+                a:a,
+                b:b
             });
             this.currentValue = "";
 
