@@ -21,6 +21,14 @@ Robot.prototype = {
         if (typeof times == "undefined") {
             times = 0;
         }
+        if(times==0){
+            //首次執行的話先將之前手動猜過的結果餵進去
+            this._app.triedList.forEach((item)=>{
+                let hint=item.hint.split("");
+                this._filter(item.result,new Number(hint[0]),new Number(hint[2]));
+                times++;
+            })
+        }
         setTimeout(() => {
             let guess;
             //前兩次猜固定的 再來隨機選答案
@@ -37,9 +45,9 @@ Robot.prototype = {
             this._app.check();
             this._app.$forceUpdate();
             //取回結果
-            let result = this._app.triedList[this._app.triedList.length - 1].hint.split("");
-            if (result[0] != 4) {
-                this._filter(guess, new Number(result[0]), new Number(result[2]));
+            let hint = this._app.triedList[this._app.triedList.length - 1].hint.split("");
+            if (hint[0] != 4) {
+                this._filter(guess, new Number(hint[0]), new Number(hint[2]));
                 this.execute(times + 1);
             }
         }, 40); //每次暫停40ms 營造一種程式在努力運算的假象
