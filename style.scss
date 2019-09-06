@@ -22,7 +22,7 @@ hr {
   margin: 4px;
   padding: 8px;
   border: 1px solid #ccc;
-  box-shadow: #eee 0px 0px 9px;
+  box-shadow: #ccc 0px 0px 5px;
 
   &.left {
     height: auto;
@@ -33,8 +33,8 @@ hr {
       font-size: 30px;
       margin: 4px 0;
       width: 96%;
-      &::placeholder{
-        color: #ccc;
+      &::placeholder {
+        color: #cecece;
       }
     }
     button {
@@ -43,16 +43,22 @@ hr {
     }
   }
   &.right {
-    width: 250px;
+    width: 290px;
 
     ul {
       margin: 0;
-      height: 220px;
+      height: 260px;
       overflow-y: scroll;
+      li {
+        padding: 2px;
+        &:nth-child(even) {
+          background-color: #f8f8f8;
+        }
+      }
     }
 
     span.result {
-      margin-right: 8px;
+      margin: 0 14px 0 4px;
     }
   }
 }
